@@ -1,3 +1,4 @@
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/mihalychev/ipgeobase/main.yml?style=plastic)
 # Ipgeobase
 
 ## Installation
