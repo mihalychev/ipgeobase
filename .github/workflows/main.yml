@@ -1,4 +1,4 @@
-name: Ruby
+name: CI
 
 on:
   push:
@@ -10,25 +10,19 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Ruby ${{ matrix.ruby }}
-    strategy:
-      matrix:
-        ruby:
-          - '3.1.3'
-
     steps:
     - uses: actions/checkout@v3
+
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: ${{ matrix.ruby }}
-        bundler-cache: true
+        ruby-version: 3.1.3
 
     - name: Install dependencies
       run: bundle install
 
-    - name: Lint
+    - name: Rubocop
       run: bundle exec rubocop
 
-    - name: Test
+    - name: Rspec
       run: bundle exec rspec
