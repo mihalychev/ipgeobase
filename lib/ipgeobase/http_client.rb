@@ -6,12 +6,18 @@ require 'addressable'
 module Ipgeobase
   class HttpClient
     def initialize(host)
-      @template = Addressable::Template.new("http://#{host}{/segments*}")
+      @host = host
     end
 
     def get(ip)
-      uri = @template.expand({ segments: ['xml', ip] })
+      uri = build_uri(ip)
       Net::HTTP.get(uri)
+    end
+
+    private
+
+    def build_uri(ip)
+      Addressable::URI.parse("http://#{@host}/xml/#{ip}")
     end
   end
 end

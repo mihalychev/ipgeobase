@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe Ipgeobase do
-  it 'has a version number' do # wow (0_0)
+  it 'has a version number' do
     expect(Ipgeobase::VERSION).not_to be nil
   end
 

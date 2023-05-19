@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+# frozen_string_literal: true
+
+$LOAD_PATH.unshift("#{__dir__}/../lib")
+
+require 'ipgeobase/http_client'
+
+ip = ARGV[0]
+puts Ipgeobase::HttpClient.new('ip-api.com').get(ip)
